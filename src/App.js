@@ -9,29 +9,7 @@ import Login from './components/auth/Login';
 import TransactionView from './components/transactions/TransactionView';
 class App extends React.Component {
   render() {
-    // const headers = ["Date", "Beneficiary Name", "Payment Type", "Amount"];
     return (
-      // <div className="App">
-        // <header className="App-header">
-            /* <img src={logo} className="App-logo" alt="logo" />
-            <p>
-                Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-                className="App-link"
-                href="https://reactjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Learn React
-            </a> */
-            /* <HelloWorld></HelloWorld> */
-            // <TableView headers={headers
-            // }/>
-            // <div className="full-body">
-            //   {/* <TransactionView /> */}
-            //   {/* <HelloWorld/> */}
-            // </div>
             <div className="app-routes">
             <BrowserRouter>
             <Switch>
@@ -40,9 +18,6 @@ class App extends React.Component {
             </Switch>
             </BrowserRouter>
           </div>
-            
-        // </header>
-    // </div>
     );
   }
 }
