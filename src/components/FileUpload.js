@@ -1,8 +1,5 @@
 import React from "react";
-<<<<<<< HEAD
 // import Dropzone from "react-dropzone";
-=======
->>>>>>> 2707291c4678aa56f9d96c49cea4c4a398cdf3e0
 import '../styles/fileupload.css';
 
 class FileUpload extends React.Component {

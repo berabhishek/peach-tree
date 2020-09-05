@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Redirect } from 'react-router-dom';
-import { registerUser, setCurrentUser } from "../actions/actions";
+import { registerUser, setCurrentUser } from "../../actions/actions";
 import { Button } from "react-bootstrap";
 
 class Login extends Component {
