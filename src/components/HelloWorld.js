@@ -1,10 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { setUser } from '../actions/actions';
+import FileUploaModal from './modals/FileUploadModal';
 
 class HelloWorld extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            showFileUploadModal: false
+        }
     }
     componentDidMount = () => {
         const user = {
@@ -12,9 +16,21 @@ class HelloWorld extends React.Component {
         }
         this.props.setUser(user)
     }
+    showFileUploadModal = () => {
+        this.setState({showFileUploadModal: true})
+    }
+    hideFileUploadModal = () => {
+        this.setState({showFileUploadModal: false})
+    }
     render() {
         console.log("userObj::: ", this.props.currentUser)
-        return <div>Hello world component</div> 
+        return (
+            <div>
+                <span>Hello world component</span>
+                <button  onClick={this.showFileUploadModal}>show file upload Modal </button>
+                <FileUploaModal show={this.state.showFileUploadModal} onClose={this.hideFileUploadModal}></FileUploaModal>
+            </div> 
+        );
     }    
 }
 
