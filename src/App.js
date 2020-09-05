@@ -3,9 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import HelloWorld from './components/HelloWorld';
 import Login from './components/auth/Login';
 import HeaderComponent from './components/HeaderComponent';
+import TransactionView from './components/transactions/TransactionView';
+import CapitalView from './components/capitals/CapitalView';
 class App extends React.Component {
   render() {
     return (
@@ -13,7 +14,8 @@ class App extends React.Component {
             <HeaderComponent />
             <BrowserRouter>
             <Switch>
-              <Route path="/dashboard" component={HelloWorld} />
+              <Route path="/transaction" component={TransactionView} />
+              <Route path="/capital" component={CapitalView} />
               <Route path="/" component={Login} />
             </Switch>
             </BrowserRouter>

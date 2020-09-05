@@ -7,7 +7,7 @@ import AddCapital from './capitals/AddCapital';
 import CapitalView from './capitals/CapitalView';
 import TransactionView from './transactions/TransactionView';
 
-class HelloWorld extends React.Component {
+class Dashboard extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -53,4 +53,4 @@ const mapStateToProps = state => ({
     currentUser: state.currentUser
 })
 
-export default connect(mapStateToProps, null)(HelloWorld);
+export default connect(mapStateToProps, null)(Dashboard);

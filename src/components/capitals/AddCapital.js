@@ -45,12 +45,12 @@ class AddCapital extends React.Component {
     render() {
         return (
             <div className="container">
-                <div className="row transition-padding">
-                    <div className="col align-mid transition-font">
+                <div className="row transaction-padding">
+                    <div className="col align-mid transaction-font">
                             <h3>Upload Document</h3>
                     </div>
                 </div>
-                    <div className="form-group transition-padding">
+                    <div className="form-group transaction-padding">
                         <select className="form-control" id="documentType">
                             <option value="Pan Card">Pan Card</option>
                             <option value="Aadhar Card">Aadhar Card</option>
@@ -60,21 +60,21 @@ class AddCapital extends React.Component {
                         </select>
                     </div>
               
-                <div className="row transition-padding">
+                <div className="row transaction-padding">
                     <div className="col-12">
-                        <input type="number" id="amount" className="full-width align-mid transition-font transition-padding transition-input" placeholder="Amount" required/>
+                        <input type="number" id="amount" className="full-width align-mid transaction-font transaction-padding transaction-input" placeholder="Amount" required/>
                     </div>
                 </div> 
-                <div className="row transition-padding">
+                <div className="row transaction-padding">
                     <div className="col-12">
-                        <button className="full-width align-mid transition-font transition-padding btn btn-success" onClick={this.showFileUploadModal}>Upload File</button>
+                        <button className="full-width align-mid transaction-font transaction-padding btn btn-success" onClick={this.showFileUploadModal}>Upload File</button>
                         <FileUploadModal show={this.state.showFileUploadModal} onClose={this.hideFileUploadModal} upload={this.uploadFile}></FileUploadModal>
                     </div>
                 </div>
-                <div className='row transition-padding'>
+                <div className='row transaction-padding'>
                     <div className="col-2"></div>
                     <div className="col-8">
-                    <input onClick={this.addCapital.bind(this)} type="submit" className="btn btn-warning full-width align-mid transition-font transition-padding" value="Apply"/>
+                    <input onClick={this.addCapital.bind(this)} type="submit" className="btn btn-warning full-width align-mid transaction-font transaction-padding" value="Apply"/>
                     </div>
                     <div className="col-2"></div>
                 </div>              

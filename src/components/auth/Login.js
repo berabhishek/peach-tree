@@ -59,7 +59,7 @@ class Login extends Component {
 
   render() {
     if (this.props.loginUser.email) {
-      return <Redirect to="/dashboard" />;
+      return <Redirect to="/transaction" />;
     }
     return (
         <div>
@@ -68,7 +68,7 @@ class Login extends Component {
                     <div className="row d-flex">
                         <div className="col-lg-6">
                             <div className="card1 pb-5">
-                                <div className="row"> <img src="https://i.imgur.com/CXQmsmF.png" className="logo"/>
+                                <div className="row"> <img src="/logo.png" className="logo"/>
                                 </div>
                                 <div className="row px-3 justify-content-center mt-4 mb-5 border-line"> 
                                     <img src="https://i.imgur.com/uNGdWHi.png" className="image"/> 
@@ -104,17 +104,6 @@ class Login extends Component {
                                 {this.state.errors}
                               </p>
                             }
-                        </div>
-                    </div>
-                </div>
-                <div className="bg-blue py-4">
-                    <div className="row px-3"> 
-                        <small className="ml-4 ml-sm-5 mb-2">Copyright &copy; 2019. All rights reserved.</small>
-                        <div className="social-contact ml-4 ml-sm-auto"> 
-                            <span className="fa fa-facebook mr-4 text-sm"></span> 
-                            <span className="fa fa-google-plus mr-4 text-sm"></span> 
-                            <span className="fa fa-linkedin mr-4 text-sm"></span> 
-                            <span className="fa fa-twitter mr-4 mr-sm-5 text-sm"></span> 
                         </div>
                     </div>
                 </div>
