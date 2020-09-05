@@ -4,9 +4,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import HelloWorld from './components/HelloWorld';
-import TableView from './components/TableView';
 import Login from './components/auth/Login';
-import TransactionView from './components/transactions/TransactionView';
 class App extends React.Component {
   render() {
     return (

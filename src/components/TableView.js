@@ -26,7 +26,7 @@ class TableView extends React.Component {
         
         return (
             <div>
-                <input type="text" onKeyUp={this.filterTable}/>
+                <input type="text" onKeyUp={this.filterTable} placeholder="Search Table"/>
                 <table id="datatable" className="table">
                     <thead>
                         <tr>

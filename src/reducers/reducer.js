@@ -10,35 +10,75 @@ const defaultState = {
     capital: []
 }
 
-function reducer(state = defaultState, action) {
+const getDefaultState = function() {
+    try {
+        let state = sessionStorage.getItem("peach-bank-state");
+        if(state === null) {
+            return defaultState;
+        }
+        state = JSON.parse(state);
+        for(let i = 0; i < state.transaction.length; i++) {
+            state.transaction[i][0] = new Date(state.transaction[i][0])
+        }
+        for(let i = 0; i < state.capital.length; i++) {
+            state.capital[i][0] = new Date(state.capital[i][0])
+        }
+        return state;
+    } catch(err) {
+        console.error("Error restoring state, returning default");
+        return defaultState;
+    }
+
+}
+
+const setDefaultState = function(state) {
+    try {
+        sessionStorage.setItem("peach-bank-state", JSON.stringify(state));
+    } catch(err) {
+        console.error("Error setting state");
+    }
+}
+
+function reducer(state = getDefaultState(), action) {
+    let final_state = {};
     switch(action.type) {
         case REGISTER_USER:
-            return {
+            final_state = {
                 ...state,
                 users: [...state.users, action.data]
-            }
+            };
+            setDefaultState(final_state);
+            return final_state; 
         case SET_CURRENT_USER:
-            return {
+            final_state = {
                 ...state,
                 currentUser: Object.assign(action.data, {})
-            }
+            };
+            setDefaultState(final_state);
+            return final_state;
         case ADD_TRANSACTION:
             state.transaction.push(action.payload);
-            return {
+            final_state = {
                 ...state,
                 transaction: state.transaction,
                 count_transaction: state.transaction.length
-            }
+            };
+            setDefaultState(final_state);
+            return final_state;
 
         case ADD_CAPITAL:
             state.capital.push(action.payload);
-            return {
+            final_state = {
                 ...state,
                 capital: state.capital,
                 count_capital: state.capital.length
             }
-        default: return state
+            setDefaultState(final_state);
+            return final_state
+        default:
+            setDefaultState(state); 
+            return state
     }
 }
 
-export default reducer
+export default reducer;
