@@ -15,6 +15,7 @@ class TransactionView extends React.Component {
     getTransaction() {
         let transaction = [];//this.props.transaction.slice();
         let date = new Date();
+        let total = 0;
         let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         this.props.transaction.forEach(t => {
             let sub_transaction = t.slice();
@@ -28,8 +29,10 @@ class TransactionView extends React.Component {
             }
             formatted_date += " "+sub_transaction[0].getHours()+":"+sub_transaction[0].getMinutes();
             sub_transaction[0] = formatted_date;
+            total += Number(sub_transaction[3]);
             transaction.push(sub_transaction);
         });
+        transaction.push([<b>Balance</b>, "", "", <b>{total}</b>]);
         return transaction;
 
     }
