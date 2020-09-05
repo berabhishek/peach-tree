@@ -2,13 +2,14 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import HelloWorld from './components/HelloWorld';
 import TableView from './components/TableView';
 import Login from './components/Login';
 
 class App extends React.Component {
   render() {
-    const headers = ["Date", "Beneficiary Name", "Payment Type", "Amount"];
+    // const headers = ["Date", "Beneficiary Name", "Payment Type", "Amount"];
     return (
       // <div className="App">
         // <header className="App-header">
@@ -27,10 +28,14 @@ class App extends React.Component {
             /* <HelloWorld></HelloWorld> */
             // <TableView headers={headers
             // }/>
-            <div>
-              <Login />
-              <HelloWorld/>
-            </div>
+            <div className="app-routes">
+            <BrowserRouter>
+            <Switch>
+              <Route path="/dashboard" component={HelloWorld} />
+              <Route path="/" component={Login} />
+            </Switch>
+            </BrowserRouter>
+          </div>
             
         // </header>
     // </div>

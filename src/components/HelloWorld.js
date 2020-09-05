@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import FileUploaModal from './modals/FileUploadModal';
 import FilePreviewModal from './modals/FilePreviewModal';
 
@@ -30,6 +31,9 @@ class HelloWorld extends React.Component {
         this.hideFileUploadModal()
     }
     render() {
+        if (!this.props.currentUser.email) {
+            return <Redirect to="/" />;
+        }
         return (
             <div>
                 <span>Hello world component</span>
@@ -42,4 +46,8 @@ class HelloWorld extends React.Component {
     }    
 }
 
-export default connect(null, null)(HelloWorld);
+const mapStateToProps = state => ({
+    currentUser: state.currentUser
+})
+
+export default connect(mapStateToProps, null)(HelloWorld);

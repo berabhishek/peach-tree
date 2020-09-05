@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { Redirect } from 'react-router-dom';
 import { registerUser, setCurrentUser } from "../actions/actions";
 import { Button } from "react-bootstrap";
 
@@ -57,6 +58,9 @@ class Login extends Component {
   }
 
   render() {
+    if (this.props.loginUser.email) {
+      return <Redirect to="/dashboard" />;
+    }
     return (
         <div>
             <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
@@ -75,7 +79,7 @@ class Login extends Component {
                             <div class="card2 card border-0 px-4 py-5">
                             <div class="row px-3"> 
                                 <label class="mb-1">
-    <h6 class="mb-0 text-sm">Email Address - {this.props.users.toString()}</h6>
+                                  <h6 class="mb-0 text-sm">Email Address</h6>
                                 </label> 
                                 <input class="mb-4" type="text" name="email" placeholder="Enter a valid email address" onChange={this.handleEmailChange}/> 
                             </div>
