@@ -5,10 +5,12 @@ import { connect } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import HelloWorld from './components/HelloWorld';
 import Login from './components/auth/Login';
+import HeaderComponent from './components/HeaderComponent';
 class App extends React.Component {
   render() {
     return (
             <div className="app-routes">
+            <HeaderComponent />
             <BrowserRouter>
             <Switch>
               <Route path="/dashboard" component={HelloWorld} />

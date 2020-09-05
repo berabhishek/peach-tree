@@ -25,33 +25,33 @@ class AddTransition extends React.Component {
     render() {
         return (
             <div className="container">
-                <div className="row transition-padding">
-                    <div className="col align-mid transition-font">
-                            <h3>Add Transition</h3>
+                <div className="row transaction-padding">
+                    <div className="col align-mid transaction-font">
+                            <h3>Add Transaction</h3>
                     </div>
                 </div>
                 <form>
-                <div className="form-group transition-padding">
+                <div className="form-group transaction-padding">
                         <select className="form-control" id="paymentType">
                             <option value="Cheque">Cheque</option>
                             <option value="UPI">UPI</option>
                             <option value="Online">Online</option>
                         </select>
                     </div>
-                <div className="row transition-padding">
+                <div className="row transaction-padding">
                     <div className="col-12">
-                        <input type="text" id="to" className="full-width align-mid transition-font transition-padding transition-input" placeholder="Beneficiary" required/>
+                        <input type="text" id="to" className="full-width align-mid transaction-font transaction-padding transaction-input" placeholder="Beneficiary" required/>
                     </div>
                 </div>
-                <div className="row transition-padding">
+                <div className="row transaction-padding">
                     <div className="col-12">
-                        <input type="number" id="amount" className="full-width align-mid transition-font transition-padding transition-input" placeholder="Amount" required/>
+                        <input type="number" id="amount" className="full-width align-mid transaction-font transaction-padding transaction-input" placeholder="Amount" required/>
                     </div>
                 </div> 
-                <div className='row transition-padding'>
+                <div className='row transaction-padding'>
                     <div className="col-2"></div>
                     <div className="col-8">
-                    <input onClick={this.addTransaction.bind(this)} type="submit" className="btn btn-warning full-width align-mid transition-font transition-padding" value="Pay Now"/>
+                    <input onClick={this.addTransaction.bind(this)} type="submit" className="btn btn-warning full-width align-mid transaction-font transaction-padding" value="Pay Now"/>
                     </div>
                     <div className="col-2"></div>
                 </div>              
