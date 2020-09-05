@@ -7,7 +7,8 @@ class HelloWorld extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            showFileUploadModal: false
+            showFileUploadModal: false,
+            file: null
         }
     }
     componentDidMount = () => {
@@ -22,13 +23,17 @@ class HelloWorld extends React.Component {
     hideFileUploadModal = () => {
         this.setState({showFileUploadModal: false})
     }
+    uploadFile = uploadedFile => {
+        console.log('uploaded file::: ', uploadedFile)
+        this.setState({file: uploadedFile})
+        this.hideFileUploadModal()
+    }
     render() {
-        console.log("userObj::: ", this.props.currentUser)
         return (
             <div>
                 <span>Hello world component</span>
                 <button  onClick={this.showFileUploadModal}>show file upload Modal </button>
-                <FileUploaModal show={this.state.showFileUploadModal} onClose={this.hideFileUploadModal}></FileUploaModal>
+                <FileUploaModal show={this.state.showFileUploadModal} onClose={this.hideFileUploadModal} upload={this.uploadFile}></FileUploaModal>
             </div> 
         );
     }    

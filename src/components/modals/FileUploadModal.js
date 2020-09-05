@@ -8,31 +8,29 @@ class FilUploadModal extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            files: []
+            file: null
         }
     }
 
-    uploadFile = file => {
-        console.log(file);
-        this.setState({
-          files: file.map(file =>
-            Object.assign(file, {
-              preview: URL.createObjectURL(file)
-            })
-          )
-        });
-    };
+    updateFile = fileToUpload => {
+        this.setState({file: fileToUpload})
+    }
 
-    componentWillUnmount() {
-        // Make sure to revoke the data uris to avoid memory leaks
-        this.state.files.forEach(file => URL.revokeObjectURL(file.preview));
+    uploadFile = () => {
+        if (this.state.file) {
+            this.props.upload(this.state.file)
+        }
+    }
+
+    closeModal = () => {
+        this.setState({file: null})
+        this.props.onClose()
     }
 
     render() {
         if(!this.props.show) {
             return null
         }
-        console.log(this.props)
         return (
             <Modal
                 {...this.props}
@@ -40,10 +38,11 @@ class FilUploadModal extends React.Component {
                 centered
                 >
                 <Modal.Body>
-                    <FileUpload uploadFile={this.uploadFile} files={this.state.files}></FileUpload>
+                    <FileUpload updateFile={this.updateFile}></FileUpload>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={this.props.onClose}>Close</Button>
+                    <Button variant="dark" onClick={this.uploadFile}>Upload</Button>
+                    <Button onClick={this.closeModal}>Close</Button>
                 </Modal.Footer>
             </Modal>
         )
@@ -52,7 +51,8 @@ class FilUploadModal extends React.Component {
 
 FilUploadModal.propTypes = {
     onClose: PropTypes.func.isRequired,
-    show: PropTypes.bool.isRequired
+    show: PropTypes.bool.isRequired,
+    upload: PropTypes.func.isRequired
 };  
 
 export default FilUploadModal;
