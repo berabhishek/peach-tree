@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import HelloWorld from './components/HelloWorld';
 import TableView from './components/TableView';
 import Login from './components/auth/Login';
-import TransitionView from './components/transitions/TransitionView';
+import TransactionView from './components/transactions/TransactionView';
 class App extends React.Component {
   render() {
     const headers = ["Date", "Beneficiary Name", "Payment Type", "Amount"];
@@ -28,7 +28,7 @@ class App extends React.Component {
             // <TableView headers={headers
             // }/>
             <div className="full-body">
-              <TransitionView />
+              <TransactionView />
               {/* <HelloWorld/> */}
             </div>
             
