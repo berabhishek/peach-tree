@@ -30,8 +30,8 @@ class TableView extends React.Component {
                     </thead>
                     <tbody>
                         {
-                            body.map(row => {
-                                return <tr>
+                            body.map((row, iterator) => {
+                                return <tr key={iterator}>
                                     {getElement(row)}
                                 </tr>
                             }) 

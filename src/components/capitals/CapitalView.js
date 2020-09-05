@@ -13,6 +13,7 @@ class CapitalView extends React.Component {
 
     }
     getCapital() {
+        debugger;
         let capital = [];
         let date = new Date();
         let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -28,6 +29,8 @@ class CapitalView extends React.Component {
             }
             formatted_date += " "+sub_capital[0].getHours()+":"+sub_capital[0].getMinutes();
             sub_capital[0] = formatted_date;
+            sub_capital[2] = <img className="img-preview" src={sub_capital[2].imgData} />;
+            // sub_capital[2] = sub_capital[2].imgData;
             capital.push(sub_capital);
         });
         return capital;
@@ -45,7 +48,7 @@ class CapitalView extends React.Component {
                         <AddCapital addCapital={this.props.addCapital}/>
                     </div>
                     <div className="col-8 view-transaction">
-                        <TableView headers={headers}/>
+                        <TableView headers={headers} data={this.getCapital()}/>
                     </div>
                 </div>
             </div>
@@ -55,7 +58,7 @@ class CapitalView extends React.Component {
 
 const mapStateToProps = state => ({
     capital: state.capital,
-    count: state.count
+    count_capital: state.count_capital
 })
 
 const mapDispatchToProps = dispatch => ({

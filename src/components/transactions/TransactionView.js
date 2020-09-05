@@ -55,7 +55,7 @@ class TransactionView extends React.Component {
 
 const mapStateToProps = state => ({
     transaction: state.transaction,
-    count: state.count
+    count_transaction: state.count_transaction
 })
 
 const mapDispatchToProps = dispatch => ({

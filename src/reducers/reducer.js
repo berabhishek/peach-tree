@@ -5,7 +5,9 @@ import { REGISTER_USER, SET_CURRENT_USER } from "../actions/actions"
 
 const defaultState = {
     currentUser: {},
-    users: []
+    users: [],
+    transaction: [],
+    capital: []
 }
 
 function reducer(state = defaultState, action) {
@@ -25,7 +27,7 @@ function reducer(state = defaultState, action) {
             return {
                 ...state,
                 transaction: state.transaction,
-                count: state.transaction.length
+                count_transaction: state.transaction.length
             }
 
         case ADD_CAPITAL:
@@ -33,7 +35,7 @@ function reducer(state = defaultState, action) {
             return {
                 ...state,
                 capital: state.capital,
-                count: state.capital.length
+                count_capital: state.capital.length
             }
         default: return state
     }

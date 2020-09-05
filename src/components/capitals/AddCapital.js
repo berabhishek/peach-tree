@@ -31,14 +31,15 @@ class AddCapital extends React.Component {
     }
     addCapital() {
         let capitalObj = [];
+        debugger;
         let documentType = document.getElementById("documentType");
         let amount = document.getElementById("amount");
-        if (documentType.value !== "" && amount.value !== "") {
+        if (documentType.value !== "" && this.state.file && amount.value !== "") {
             capitalObj.push(new Date());
             capitalObj.push(documentType.value)
+            capitalObj.push(this.state.file);
             capitalObj.push(amount.value)
             capitalObj.push("Verified");
-            documentType.value = "";
             amount.value = "";
             this.props.addCapital(capitalObj);
         }
@@ -52,10 +53,8 @@ class AddCapital extends React.Component {
                             <h3>Upload Document</h3>
                     </div>
                 </div>
-                <form>
-                    <div class="form-group transition-padding">
-                        {/* <label for="documentType">Document</label> */}
-                        <select class="form-control" id="documentType">
+                    <div className="form-group transition-padding">
+                        <select className="form-control" id="documentType">
                             <option value="pancard">Pan Card</option>
                             <option value="aadharcard">Aadhar Card</option>
                             <option value="driverlicense">Driver License</option>
@@ -66,24 +65,22 @@ class AddCapital extends React.Component {
               
                 <div className="row transition-padding">
                     <div className="col-12">
-                        <input type="number" id="amount" class="full-width align-mid transition-font transition-padding transition-input" placeholder="Amount" required/>
+                        <input type="number" id="amount" className="full-width align-mid transition-font transition-padding transition-input" placeholder="Amount" required/>
                     </div>
                 </div> 
                 <div className="row transition-padding">
                     <div className="col-12">
-                        <button class="full-width align-mid transition-font transition-padding btn btn-success" onClick={this.showFileUploadModal}>Upload File</button>
+                        <button className="full-width align-mid transition-font transition-padding btn btn-success" onClick={this.showFileUploadModal}>Upload File</button>
                         <FileUploadModal show={this.state.showFileUploadModal} onClose={this.hideFileUploadModal} upload={this.uploadFile}></FileUploadModal>
                     </div>
                 </div>
                 <div className='row transition-padding'>
                     <div className="col-2"></div>
                     <div className="col-8">
-                    <input onClick={this.addCapital.bind(this)} type="submit" class="btn btn-warning full-width align-mid transition-font transition-padding" value="Apply"/>
+                    <input onClick={this.addCapital.bind(this)} type="submit" className="btn btn-warning full-width align-mid transition-font transition-padding" value="Apply"/>
                     </div>
                     <div className="col-2"></div>
                 </div>              
-                
-                </form>
             </div>
         )
     }
