@@ -52,11 +52,11 @@ class AddCapital extends React.Component {
                 </div>
                     <div className="form-group transition-padding">
                         <select className="form-control" id="documentType">
-                            <option value="pancard">Pan Card</option>
-                            <option value="aadharcard">Aadhar Card</option>
-                            <option value="driverlicense">Driver License</option>
-                            <option value="passport">Passport</option>
-                            <option value="rentagreement">Rent Agreement</option>
+                            <option value="Pan Card">Pan Card</option>
+                            <option value="Aadhar Card">Aadhar Card</option>
+                            <option value="Driver License">Driver License</option>
+                            <option value="Passport">Passport</option>
+                            <option value="Rent Agreement">Rent Agreement</option>
                         </select>
                     </div>
               
