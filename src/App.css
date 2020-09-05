@@ -206,3 +206,28 @@ a {
       margin: 0px 15px
   }
 }
+
+.align-mid {
+    text-align: center;
+}
+.full-width {
+    width: 100%;
+}
+
+.transition-font {
+  font: 400;
+  font-family: sans-serif;
+  font-size: large;
+}
+
+.transition-padding {
+  padding: 10px 2px;
+}
+
+.transition-input {
+  border: 1px solid;
+}
+.full-body {
+  width: 100%;
+  padding: 0px;
+}
