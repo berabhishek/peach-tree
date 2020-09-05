@@ -1,17 +1,24 @@
 import { SET_USER } from "../actions/actions"
 import { ADD_TRANSACTION } from "../actions/actions"
 import { act } from "react-dom/test-utils";
+import { REGISTER_USER, SET_CURRENT_USER } from "../actions/actions"
+
 const defaultState = {
     currentUser: {},
-    transaction: []
+    users: []
 }
 
 function reducer(state = defaultState, action) {
     switch(action.type) {
-        case SET_USER:
+        case REGISTER_USER:
             return {
                 ...state,
-                currentUser: action.payload
+                users: [...state.users, action.data]
+            }
+        case SET_CURRENT_USER:
+            return {
+                ...state,
+                currentUser: Object.assign(action.data, {})
             }
         case ADD_TRANSACTION:
             state.transaction.push(action.payload);

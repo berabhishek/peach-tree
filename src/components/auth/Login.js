@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { Redirect } from 'react-router-dom';
+import { registerUser, setCurrentUser } from "../actions/actions";
+import { Button } from "react-bootstrap";
 
 class Login extends Component {
   constructor() {
@@ -10,6 +13,7 @@ class Login extends Component {
       password: "",
       errors: {}
     };
+    this.handleLoginClick = this.handleLoginClick.bind(this)
   }
 
   componentDidMount() {
@@ -18,24 +22,45 @@ class Login extends Component {
     //   this.props.history.push("/dashboard");
     // }
   }
-  onChange = e => {
-    this.setState({ [e.target.id]: e.target.value });
-  };
 
-  onSubmit = e => {
-    e.preventDefault();
+  handleEmailChange = e => {
+    this.setState({email: e.target.value})
+  }
 
-    const userData = {
-      email: this.state.email,
-      password: this.state.password
-    };
+  handlePasswordChange = e => {
+    this.setState({password: e.target.value})
+  }
 
-    // this.props.loginUser(userData);
-  };
+  handleLoginClick() {
+    const isUserExist = this.props.users.filter(user => user.email === this.state.email && user.password === this.state.password)
+    if (isUserExist.length === 0) {
+      this.setState({errors: "Invalid email/password combination"})
+    } else {
+      this.setState({errors: ""})
+      this.props.setCurrentUser({
+        email: this.state.email,
+        password: this.state.password
+      })
+    }
+  }
+
+  handleRegisterClick = () => {
+    const isEmailExist = this.props.users.filter(user => user.email === this.state.email)
+    if (isEmailExist.length > 0) {
+      this.setState({errors: "Email already exist"})
+    } else {
+      this.setState({errors: ""})
+      this.props.registerUser({
+        email: this.state.email,
+        password: this.state.password
+      })
+    }
+  }
 
   render() {
-    const { errors } = this.state;
-
+    if (this.props.loginUser.email) {
+      return <Redirect to="/dashboard" />;
+    }
     return (
         <div>
             <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
@@ -54,15 +79,15 @@ class Login extends Component {
                             <div class="card2 card border-0 px-4 py-5">
                             <div class="row px-3"> 
                                 <label class="mb-1">
-                                    <h6 class="mb-0 text-sm">Email Address</h6>
+                                  <h6 class="mb-0 text-sm">Email Address</h6>
                                 </label> 
-                                <input class="mb-4" type="text" name="email" placeholder="Enter a valid email address"/> 
+                                <input class="mb-4" type="text" name="email" placeholder="Enter a valid email address" onChange={this.handleEmailChange}/> 
                             </div>
                             <div class="row px-3"> 
                                 <label class="mb-1">
                                     <h6 class="mb-0 text-sm">Password</h6>
                                 </label> 
-                                <input type="password" name="password" placeholder="Enter password"/> 
+                                <input type="password" name="password" placeholder="Enter password" onChange={this.handlePasswordChange}/> 
                             </div>
                             <div class="row px-3 mb-4">
                                 <div class="custom-control custom-checkbox custom-control-inline"> 
@@ -71,8 +96,14 @@ class Login extends Component {
                                 </div> 
                              </div>
                             <div class="row mb-3 px-3"> 
-                                <button type="submit" class="btn btn-blue text-center">Login</button>
+                                <Button class="btn btn-blue text-center" onClick={this.handleLoginClick}>Login</Button>
+                                <Button type="submit" class="btn btn-blue text-center" onClick={this.handleRegisterClick}>Register</Button>
                             </div>
+                            {this.state.errors.length > 0 &&
+                              <p>
+                                {this.state.errors}
+                              </p>
+                            }
                         </div>
                     </div>
                 </div>
@@ -96,16 +127,27 @@ class Login extends Component {
 
 Login.propTypes = {
 //   loginUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
+  loginUser: PropTypes.object.isRequired,
+  users: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => ({
-  auth: state.auth,
-  errors: state.errors
+  loginUser: state.currentUser,
+  users: state.users
 });
+
+const mapDispatchToProps = dispatch => {
+  return {
+    registerUser: userObj => {
+      dispatch(registerUser(userObj))
+    },
+    setCurrentUser: userObj => {
+      dispatch(setCurrentUser(userObj))
+    }
+  }
+}
 
 export default connect(
   mapStateToProps,
-//   { loginUser }
+  mapDispatchToProps
 )(Login);

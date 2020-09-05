@@ -27,7 +27,10 @@
     background-size: 100%;
     background-repeat: no-repeat;
 }
-.color input{ background-color:#f1f1f1;}
+.color input{ 
+    background-color:#f1f1f1;
+    height: 100%;
+}
 .files:before {
     position: absolute;
     bottom: 10px;
