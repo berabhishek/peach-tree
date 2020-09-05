@@ -70,39 +70,6 @@ body {
   border-right: 1px solid #EEEEEE
 }
 
-.facebook {
-  background-color: #3b5998;
-  color: #fff;
-  font-size: 18px;
-  padding-top: 5px;
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
-  cursor: pointer
-}
-
-.twitter {
-  background-color: #1DA1F2;
-  color: #fff;
-  font-size: 18px;
-  padding-top: 5px;
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
-  cursor: pointer
-}
-
-.linkedin {
-  background-color: #2867B2;
-  color: #fff;
-  font-size: 18px;
-  padding-top: 5px;
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
-  cursor: pointer
-}
-
 .line {
   height: 1px;
   width: 45%;
@@ -168,23 +135,6 @@ button:focus {
 a {
   color: inherit;
   cursor: pointer
-}
-
-.btn-blue {
-  background-color: #1A237E;
-  width: 150px;
-  color: #fff;
-  border-radius: 2px
-}
-
-.btn-blue:hover {
-  background-color: #000;
-  cursor: pointer
-}
-
-.bg-blue {
-  color: #fff;
-  background-color: #1A237E
 }
 
 @media screen and (max-width: 991px) {
