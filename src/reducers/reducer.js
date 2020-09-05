@@ -1,10 +1,12 @@
+import { SET_USER } from "../actions/actions"
+
 const defaultState = {
     currentUser: {}
 }
 
 function reducer(state = defaultState, action) {
     switch(action.type) {
-        case 'SET_USER':
+        case SET_USER:
             return {
                 ...state,
                 currentUser: action.payload
