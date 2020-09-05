@@ -4,7 +4,7 @@ import { Modal, Button } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 import FileUpload from '../FileUpload';
 
-class FilUploadModal extends React.Component {
+class FileUploadModal extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -49,10 +49,10 @@ class FilUploadModal extends React.Component {
     }
 }
 
-FilUploadModal.propTypes = {
+FileUploadModal.propTypes = {
     onClose: PropTypes.func.isRequired,
     show: PropTypes.bool.isRequired,
     upload: PropTypes.func.isRequired
 };  
 
-export default FilUploadModal;
+export default FileUploadModal;
