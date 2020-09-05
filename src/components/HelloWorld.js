@@ -5,6 +5,7 @@ import FileUploaModal from './modals/FileUploadModal';
 import FilePreviewModal from './modals/FilePreviewModal';
 import AddCapital from './capitals/AddCapital';
 import CapitalView from './capitals/CapitalView';
+import TransactionView from './transactions/TransactionView';
 
 class HelloWorld extends React.Component {
     constructor(props) {
@@ -38,7 +39,7 @@ class HelloWorld extends React.Component {
         }
         return (
             <div>
-                <CapitalView />
+                <TransactionView />
                 {/* <button  onClick={this.showFileUploadModal}>show file upload Modal </button> */}
                 {/* <FileUploaModal show={this.state.showFileUploadModal} onClose={this.hideFileUploadModal} upload={this.uploadFile}></FileUploaModal> */}
                 {/* <button  onClick={this.showFilePreviewModal}>show preview Modal </button> */}

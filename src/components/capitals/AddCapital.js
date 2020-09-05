@@ -1,6 +1,4 @@
 import React from "react";
-import { Form } from "react-bootstrap";
-import FileUpload from "../FileUpload";
 import FileUploadModal from "../modals/FileUploadModal";
 
 class AddCapital extends React.Component {

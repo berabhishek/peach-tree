@@ -1,10 +1,18 @@
 import React from 'react';
-
+import $ from "jquery";
 class TableView extends React.Component {
     constructor(props) {
         super(props)
     }
-
+    filterTable(event) {
+        let value = $(event.target).val().toLowerCase();
+        let element = $("#datatable tr");
+        element.filter((param) => {
+            if (param > 0 ){
+                $(element[param]).toggle($(element[param]).text().toLowerCase().indexOf(value) > -1);
+            }
+        });
+    }
     render() {
         const headers=this.props.headers ? this.props.headers : [];
         const body=this.props.data ? this.props.data: [];
@@ -18,7 +26,8 @@ class TableView extends React.Component {
         
         return (
             <div>
-                <table className="table">
+                <input type="text" onKeyUp={this.filterTable}/>
+                <table id="datatable" className="table">
                     <thead>
                         <tr>
                             {

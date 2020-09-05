@@ -13,7 +13,6 @@ class CapitalView extends React.Component {
 
     }
     getCapital() {
-        debugger;
         let capital = [];
         let date = new Date();
         let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
