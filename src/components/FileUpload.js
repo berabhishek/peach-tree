@@ -28,7 +28,7 @@ class FileUpload extends React.Component {
                     <form>
                         <div className="form-group files color">
                             <label>Upload Your File </label>
-                            <input type="file" className="form-control" multiple="" onChange={this.readFile} />
+                            <input type="file" className="form-control" multiple="" onChange={this.readFile} accept="image/x-png,image/gif,image/jpeg"/>
                         </div>
                     </form>
                 </div>
