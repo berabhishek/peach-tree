@@ -27,7 +27,11 @@ class App extends React.Component {
             /* <HelloWorld></HelloWorld> */
             // <TableView headers={headers
             // }/>
-            <Login />
+            <div>
+              <Login />
+              <HelloWorld/>
+            </div>
+            
         // </header>
     // </div>
     );
