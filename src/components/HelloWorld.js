@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setUser } from '../actions/actions';
 import FileUploaModal from './modals/FileUploadModal';
 import FilePreviewModal from './modals/FilePreviewModal';
 
@@ -12,12 +11,6 @@ class HelloWorld extends React.Component {
             file: null,
             showFilePreviewModal: false
         }
-    }
-    componentDidMount = () => {
-        const user = {
-            name: 'Abhishek'
-        }
-        this.props.setUser(user)
     }
     showFileUploadModal = () => {
         this.setState({showFileUploadModal: true})
@@ -49,14 +42,4 @@ class HelloWorld extends React.Component {
     }    
 }
 
-const mapStateToProps = state => ({
-    currentUser: state.currentUser
-})
-
-const mapDispatchToProps = dispatch => ({
-    setUser: userObj => {
-        dispatch(setUser(userObj))
-    }
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(HelloWorld);
+export default connect(null, null)(HelloWorld);

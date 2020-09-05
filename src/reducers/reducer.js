@@ -1,15 +1,21 @@
-import { SET_USER } from "../actions/actions"
+import { REGISTER_USER, SET_CURRENT_USER } from "../actions/actions"
 
 const defaultState = {
-    currentUser: {}
+    currentUser: {},
+    users: []
 }
 
 function reducer(state = defaultState, action) {
     switch(action.type) {
-        case SET_USER:
+        case REGISTER_USER:
             return {
                 ...state,
-                currentUser: action.payload
+                users: [...state.users, action.data]
+            }
+        case SET_CURRENT_USER:
+            return {
+                ...state,
+                currentUser: Object.assign(action.data, {})
             }
         default: return state
     }
