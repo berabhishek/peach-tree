@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from 'react-redux';
+import {removeCurrentUser} from "../actions/actions";
 
 class HeaderComponent extends React.Component {
     render() {
@@ -18,7 +20,7 @@ class HeaderComponent extends React.Component {
                         <a className="nav-link" href="#">Capital</a>
                     </li>
                     <li className="nav-item">
-                        <button className="btn btn-danger">Log out</button>
+                        <button className="btn btn-danger" onClick={this.props.removeCurrentUser}>Log out</button>
                     </li>
                     </ul>
                 </div>
@@ -28,5 +30,14 @@ class HeaderComponent extends React.Component {
     }
 
 }
+const mapStateToProps = state => ({
+    currentUser: state.currentUser
+})
 
-export default HeaderComponent;
+const mapDispatchToProps = dispatch => ({
+    removeCurrentUser: () => {
+        dispatch(removeCurrentUser())
+    }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderComponent);

@@ -1,5 +1,4 @@
 import React from "react";
-import { Form } from "react-bootstrap";
 
 class AddTransition extends React.Component {
     constructor(props) {

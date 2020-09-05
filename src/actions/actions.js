@@ -31,6 +31,9 @@ export function addCapital(capitalObj) {
 export function setCurrentUser(userObj) {
   return { type: SET_CURRENT_USER, data: userObj }
 }
+export function removeCurrentUser() {
+  return { type: SET_CURRENT_USER, data: {}}
+}
 
 export function registerUser(userObj) {
     return { type: REGISTER_USER, data: userObj}
