@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { setUser } from '../actions/actions';
 
 class HelloWorld extends React.Component {
     constructor(props) {
@@ -23,7 +24,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     setUser: userObj => {
-        dispatch({type: 'SET_USER', payload: userObj})
+        dispatch(setUser(userObj))
     }
 })
 
