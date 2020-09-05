@@ -25,7 +25,6 @@ class AddCapital extends React.Component {
         this.setState({showFilePreviewModal: false})
     }
     uploadFile = uploadedFile => {
-        console.log('uploaded file::: ', uploadedFile)
         this.setState({file: uploadedFile})
         this.hideFileUploadModal()
     }
@@ -39,7 +38,7 @@ class AddCapital extends React.Component {
             capitalObj.push(documentType.value)
             capitalObj.push(this.state.file);
             capitalObj.push(amount.value)
-            capitalObj.push("Verified");
+            capitalObj.push("Pending Verification");
             amount.value = "";
             this.props.addCapital(capitalObj);
         }
